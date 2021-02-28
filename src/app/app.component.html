@@ -1,0 +1,9 @@
+<input #textbox/>
+<button *ngIf="mode==='submit'" (keyup.enter)="handleClick(textbox)" (click)="handleClick(textbox)" [disabled]="a.length > 2">Submit</button>
+<button *ngIf="mode==='update'" (keyup.enter)="updateClick(textbox)" (click)="updateClick(textbox)">Update</button>
+
+
+<div *ngFor="let item of a; index as i; last as l; first as f; odd as o; even as e">
+	<app-list-item (editEv)="edit($event, textbox)" (deleteEv)="delete($event)" [item]="item" [l]="l" [i]="i">
+	</app-list-item>
+</div>
